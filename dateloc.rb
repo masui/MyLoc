@@ -1,9 +1,10 @@
 #
 # Googleの移動履歴をもとにしてある日付の位置履歴を見る
 #
-# 移動履歴はここから取得できる
-#   https://takeout.google.com/
-# ~/Downloads/Takeout/ロケーション履歴/ロケーション履歴.json というファイルを使う
+# 移動履歴は以下のURLから取得できる
+#   https://takeout.google.com/settings/takeout/custom/location_history
+#
+# これに入っている「ロケーション履歴.json」というファイルを使う
 #
 # usage: % ruby dataloc.rb 2019/5/5 [2019/5/6]
 #
