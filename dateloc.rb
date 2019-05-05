@@ -3,9 +3,11 @@
 #
 # 移動履歴はここから取得できる
 #   https://takeout.google.com/
-# ~/Downloads/Takeout/ロケーション履歴/ロケーション履歴.json というファイルが
-# できるのでこれを myloc.json という名前でコピーしている
+# ~/Downloads/Takeout/ロケーション履歴/ロケーション履歴.json というファイルを使う
 #
+# usage: % ruby dataloc.rb 2019/5/5 [2019/5/6]
+#
+
 require 'json'
 
 exit unless ARGV[0] =~ /^(\d+)\/(\d+)\/(\d+)$/
@@ -17,7 +19,7 @@ if ARGV[1].to_s =~ /^(\d+)\/(\d+)\/(\d+)$/
   to = Time.new($1,$2,$3) + 24 * 60 * 60
 end
 
-data = JSON.parse(File.read('myloc.json'))
+data = JSON.parse(File.read('ロケーション履歴.json'))
 locations = data['locations']
 
 def radian(degree)
