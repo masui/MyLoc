@@ -2,3 +2,9 @@
 
 <a href="https://takeout.google.com/settings/takeout/custom/location_history">Googleの移動履歴情報</a>をダウンロードして、
 ある日に自分がどこにいたかを簡単に知ることができるプログラム。
+
+<h2>利用例</h2>
+
+<pre>
+  % ruby dateloc.rb 2019/5/5
+</pre>
