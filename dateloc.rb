@@ -2,8 +2,9 @@
 # Googleの移動履歴をもとにしてある日付の位置履歴を見る
 #
 # 移動履歴はここから取得できる
-# https://takeout.google.com/
-# 「ロケーション履歴.json」というファイルができるのでこれを myloc.json という名前でコピーしている
+#   https://takeout.google.com/
+# ~/Downloads/Takeout/ロケーション履歴/ロケーション履歴.json というファイルが
+# できるのでこれを myloc.json という名前でコピーしている
 #
 require 'json'
 
@@ -11,6 +12,10 @@ exit unless ARGV[0] =~ /^(\d+)\/(\d+)\/(\d+)$/
 
 from = Time.new($1,$2,$3)
 to = from + 24 * 60 * 60
+
+if ARGV[1].to_s =~ /^(\d+)\/(\d+)\/(\d+)$/
+  to = Time.new($1,$2,$3)
+end
 
 data = JSON.parse(File.read('myloc.json'))
 locations = data['locations']
