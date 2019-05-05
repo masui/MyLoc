@@ -14,7 +14,7 @@ from = Time.new($1,$2,$3)
 to = from + 24 * 60 * 60
 
 if ARGV[1].to_s =~ /^(\d+)\/(\d+)\/(\d+)$/
-  to = Time.new($1,$2,$3)
+  to = Time.new($1,$2,$3) + 24 * 60 * 60
 end
 
 data = JSON.parse(File.read('myloc.json'))
@@ -49,10 +49,11 @@ locations.each { |loc|
       lastlong = long
       latstr = (lat >= 0.0 ? "N#{lat}" : "S#{-lat}")
       longstr = (long >= 0.0 ? "E#{long}" : "W#{-long}")
-      puts loc['timestampMs']
+      # puts loc['timestampMs']
       puts t
-      puts loc['accuracy']
+      # puts loc['accuracy']
       puts "[#{latstr},#{longstr},Z14]"
+      puts ""
     end
   end
 }
